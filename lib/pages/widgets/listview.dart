@@ -20,6 +20,12 @@ class _ListMoedaState extends State<ListMoeda>{
   List<Moedas> selecionadas=[];
   late FavoritasRepository favoritas;
 
+  selectMoeda(List<Moedas> tabela, int moeda){
+    setState(() {
+                 (selecionadas.contains(tabela[moeda])) ? selecionadas.remove(tabela[moeda]) : selecionadas.add(tabela[moeda]);
+              });
+  }
+
   @override
   Widget build(BuildContext context){
     favoritas = context.watch<FavoritasRepository>();
@@ -63,12 +69,10 @@ class _ListMoedaState extends State<ListMoeda>{
             selected: selecionadas.contains(tabela[moeda]),//(selecionadas.contains(tabela[moeda])),
             selectedTileColor: widget.color.withOpacity(0.3),
             onLongPress: ()  {
-              setState(() {
-                 (selecionadas.contains(tabela[moeda])) ? selecionadas.remove(tabela[moeda]) : selecionadas.add(tabela[moeda]);
-              });
+                selectMoeda(tabela, moeda);
                 widget.onSelectionChanged(selecionadas);
               },
-              onTap:() => widget.moedasDetalhes(tabela[moeda]),
+              onTap:() => (selecionadas.isEmpty)? widget.moedasDetalhes(tabela[moeda]): (selectMoeda(tabela, moeda)),
           );
         
        }, 
