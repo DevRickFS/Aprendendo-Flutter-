@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:meu_novo_app/pages/moedas_page.dart';
 import 'package:meu_novo_app/repositories/color_repository.dart';
@@ -42,18 +43,22 @@ class _HomePageState extends State<HomePage> {
            FavoritasPage(),
       ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: paginaAtual,
-        elevation: 2,
+      bottomNavigationBar: CurvedNavigationBar(
+        animationCurve: Curves.easeInOut,
+        animationDuration: Duration(milliseconds: 400),
+        height: 50,
+        color: color.color,
+        backgroundColor: Colors.white,
+       
+        index: paginaAtual,
         onTap: (pagina){
           pc.animateToPage(pagina, duration: const Duration(milliseconds: 400), curve: Curves.ease);
         },
         
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Moedas', ),
-          BottomNavigationBarItem(icon: Icon(Icons.star_rate), label: 'Favoritas')
+           Icon(Icons.list, color: Colors.white,),
+          Icon(Icons.star_rate, color: Colors.white,),
       ],
-      selectedItemColor: color.color,
       ),
     );
   }
