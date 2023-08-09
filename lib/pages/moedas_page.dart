@@ -7,6 +7,7 @@ import 'package:meu_novo_app/models/moeda.dart';
 import 'package:meu_novo_app/pages/widgets/listview.dart';
 import 'package:meu_novo_app/repositories/color_repository.dart';
 import 'package:meu_novo_app/repositories/favoritas_repository.dart';
+import 'package:meu_novo_app/repositories/moedas_repository.dart';
 import 'package:provider/provider.dart';
 
 import 'moeda_detalhe_page.dart';
@@ -18,7 +19,7 @@ class MoedasPage extends StatefulWidget {
   State<MoedasPage> createState() => _MoedasPageState();
 }
   class _MoedasPageState extends State<MoedasPage>{
-    
+    late MoedaRepository moedas;
     List<Moedas> selecionadasList=[];
     late FavoritasRepository favoritadas;
     late ColorRepository color;
@@ -34,6 +35,7 @@ class MoedasPage extends StatefulWidget {
     @override
   Widget build(BuildContext context){
     favoritadas = context.watch<FavoritasRepository>();
+    moedas = context.watch<MoedaRepository>();
     color = context.watch<ColorRepository>();
     return Scaffold(
       appBar: (selecionadasList.isEmpty) ? AppBar(
@@ -42,6 +44,7 @@ class MoedasPage extends StatefulWidget {
         centerTitle: true,
         backgroundColor: color.color,
         actions: <Widget>[
+          IconButton(onPressed: (){ moedas.sort();}, icon: const Icon(Icons.swap_vert_circle_sharp)),
           IconButton(
             onPressed: color.setColor, 
             icon: const Icon(Icons.color_lens), 

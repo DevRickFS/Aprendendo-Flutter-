@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
+
 import '../models/moeda.dart';
 
-class MoedaRepository {
-  static List<Moedas>  tabela = [
+class MoedaRepository extends ChangeNotifier{
+  bool isSorted = false;
+   List<Moedas>  tabela = [
       Moedas(
         icone: 'images/bitcoin.png', 
         nome: 'Bitcoin' , 
@@ -33,5 +36,15 @@ class MoedaRepository {
         sigla: 'XRP', 
         preco: 3.32)
     ];
+
+      sort(){
+      if(!isSorted){
+      tabela.sort((Moedas a, Moedas b) => a.getNome().compareTo(b.getNome()));
+        isSorted = true;
+      } else {
+      tabela =tabela.reversed.toList();
+      }
+      notifyListeners();
+    }
   }
 
