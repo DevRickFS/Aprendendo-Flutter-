@@ -16,7 +16,7 @@ class FavoritasPage extends StatefulWidget {
 
 class _FavoritasPageState extends State<FavoritasPage> {
   NumberFormat real = NumberFormat.currency(locale: 'pt-_BR', name: 'R\$');
-  List<Moedas> listRemovidas=[];
+  List<Moedas> listRemovidas = [];
   late FavoritasRepository favoritas;
   late ColorRepository cor;
   @override
@@ -78,6 +78,7 @@ class _FavoritasPageState extends State<FavoritasPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children:[Text("não ha moedas ainda", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),)]),
       floatingActionButton: (listRemovidas.isNotEmpty) ? FloatingActionButton.extended(
+        backgroundColor: cor.color,
         icon: const Icon(Icons.star_purple500_rounded),
         label:  Text('Remover'.toUpperCase(), style: const TextStyle(letterSpacing: 0, fontWeight: FontWeight.bold)),
         onPressed: (){
