@@ -12,7 +12,6 @@ class MeuNovoApp extends StatelessWidget{
       title: "App Novo de Moedas",
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(
-        primaryColorDark: Colors.deepPurple,
         scaffoldBackgroundColor: const  Color.fromARGB(255, 255, 255, 255),
       ),
       home: const HomePage(),
