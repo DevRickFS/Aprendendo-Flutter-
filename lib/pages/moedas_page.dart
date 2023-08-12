@@ -45,11 +45,11 @@ class MoedasPage extends StatefulWidget {
         backgroundColor: color.color,
         actions: <Widget>[
           IconButton(onPressed: (){ moedas.sort();}, icon: const Icon(Icons.swap_vert_circle_sharp)),
-          IconButton(
-            onPressed: color.setColor, 
-            icon: const Icon(Icons.color_lens), 
-            iconSize: 36,
-            ),
+          // IconButton(
+          //   onPressed: color.setColor, 
+          //   icon: const Icon(Icons.color_lens), 
+          //   iconSize: 36,
+          //   ),
         ],
       ): AppBar(
         leading: IconButton(

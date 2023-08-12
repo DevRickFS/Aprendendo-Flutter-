@@ -7,7 +7,7 @@ import '../models/posicao.dart';
 
 class ContaRepository extends ChangeNotifier{
   late Database db;
-  List<Posicao> _carteira = [];
+  final List<Posicao> _carteira = [];
   double _saldo= 0;
 
   get saldo => _saldo;

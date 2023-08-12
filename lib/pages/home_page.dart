@@ -4,7 +4,8 @@ import 'package:meu_novo_app/pages/moedas_page.dart';
 import 'package:meu_novo_app/repositories/color_repository.dart';
 import 'package:provider/provider.dart';
 
-import 'Configs_page.dart';
+import 'configs_page.dart';
+import 'carteira_page.dart';
 import 'favoritas_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -42,21 +43,24 @@ class _HomePageState extends State<HomePage> {
         children: const [
           MoedasPage(),
           FavoritasPage(),
+          CarteiraPage(),
           ConfigsPage(),
       ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        animationDuration:  Duration(milliseconds:400),
+        animationDuration:  const Duration(milliseconds:300),
         color: color.color,
        backgroundColor: Colors.white,
         index: paginaAtual,
         onTap: (pagina){
-          pc.animateToPage(pagina, duration: const Duration(milliseconds: 400), curve: Curves.ease);
+          pc.animateToPage(pagina, duration: const Duration(milliseconds: 
+          300), curve: Curves.easeInOut);
         },
         
         items: const [
           Icon(Icons.list, color: Colors.white,),
           Icon(Icons.star_rate, color: Colors.white,),
+          Icon(Icons.account_balance, color:  Colors.white,),
           Icon(Icons.settings, color: Colors.white,)
       ],
       ),

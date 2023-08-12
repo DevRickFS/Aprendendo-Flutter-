@@ -77,7 +77,7 @@ class _ListMoedaState extends State<ListMoeda>{
           );
         
        }, 
-       separatorBuilder: (BuildContext context, moeda) =>  Divider(color: widget.color, height: 20, thickness: 1.5,),
+       separatorBuilder: (BuildContext context, moeda) =>  const Divider(),
       );
   }
   Widget _buildIconeSelect(){
@@ -89,6 +89,7 @@ class _ListMoedaState extends State<ListMoeda>{
         child: const Icon(Icons.check, 
         color: Colors.white,
         ),
-        ), );
+      ), 
+    );
   }
 } 

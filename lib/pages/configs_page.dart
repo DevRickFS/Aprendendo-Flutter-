@@ -50,7 +50,7 @@ class _ConfigsPageState extends State<ConfigsPage> {
 
     valor.text = conta.saldo.toString();
     AlertDialog dialog = AlertDialog(
-      title: Text('Atualizar o saldo'), 
+      title: const Text('Atualizar o saldo'), 
       content: Form(
         key: form,
         child: TextFormField(
@@ -68,7 +68,7 @@ class _ConfigsPageState extends State<ConfigsPage> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context), 
-          child: Text('Cancelar')),
+          child: const Text('Cancelar')),
         TextButton(
           onPressed: (){
             if (form.currentState!.validate()){
@@ -76,7 +76,7 @@ class _ConfigsPageState extends State<ConfigsPage> {
               Navigator.pop(context);
             }
           }, 
-          child: Text('Salvar'))
+          child: const Text('Salvar'))
 
       ],
     );
