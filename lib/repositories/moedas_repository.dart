@@ -4,7 +4,7 @@ import '../models/moeda.dart';
 
 class MoedaRepository extends ChangeNotifier{
   bool isSorted = false;
-   List<Moedas>  tabela = [
+  static List<Moedas>  tabela = [
       Moedas(
         icone: 'images/bitcoin.png', 
         nome: 'Bitcoin' , 

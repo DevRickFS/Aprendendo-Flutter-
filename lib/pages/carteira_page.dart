@@ -97,7 +97,7 @@ class _CarteiraPageState extends State<CarteiraPage> {
         porcentagem = carteira[i].moeda.getPreco() * carteira[i].quantidade/ totalCarteira;
         
       } else {
-        porcentagem  = (conta.saldo> 0)? conta.saldo / totalCarteira: 0;
+        porcentagem  = (conta.saldo >= 0)? conta.saldo / totalCarteira: 0;
       }
       porcentagem *= 100;
 
