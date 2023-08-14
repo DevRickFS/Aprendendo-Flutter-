@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:meu_novo_app/models/historico.dart';
 import 'package:meu_novo_app/repositories/conta_repository.dart';
 import 'package:provider/provider.dart';
 
@@ -54,6 +55,7 @@ class _CarteiraPageState extends State<CarteiraPage> {
                 ),
               ),
               loadGrafico(),
+              loadHistorico(),
           ],
         ),
       ),
@@ -154,6 +156,22 @@ class _CarteiraPageState extends State<CarteiraPage> {
           ],
         )
       ],
+    );
+  }
+  loadHistorico(){
+    final historico = conta.historico;
+    final date = DateFormat('dd/MM/yyyy - HH:mm');
+    List<Widget> widgets = [];
+    for(var operacao in historico){
+      widgets.add(ListTile(
+        title: Text('${operacao.moeda.getSigla()} - ${operacao.moeda.getNome()}'),
+        subtitle: Text(date.format(operacao.dataOperacao)),
+        trailing: Text(real.format((operacao.moeda.getPreco() * operacao.quantidade))),
+      )); 
+      widgets.add(Divider());
+    }
+    return Column(
+      children: widgets,
     );
   }
 }

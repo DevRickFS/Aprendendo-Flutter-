@@ -31,6 +31,7 @@ class _MoedaDetalhePageState extends State<MoedaDetalhePage> {
 
       // Salvar em algum banco de dados
       await conta.comprar(widget.moeda, double.parse(_valor.text));
+      
       // retornando para pagina anterior
       Navigator.pop(context);
 
